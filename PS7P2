@@ -1,0 +1,9 @@
+#Hubert Radzik
+first = 1
+second = 1
+print("Fibonacci Sequence:")
+for i in range(20):
+    print(first, end=" ")
+    next_num = first + second
+    first = second
+    second = next_num
