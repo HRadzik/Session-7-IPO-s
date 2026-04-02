@@ -1,0 +1,23 @@
+#Hubert Radzik
+total_tuition = 0.0
+num_students = 0
+f = open("students.txt", "r")
+# prime read
+name = f.readline().rstrip('\n')
+while name != "":
+    code = f.readline().rstrip('\n')
+    credits = int(f.readline().rstrip('\n'))
+    if code == 'I':
+        cost = 250.0
+    else:
+        cost = 500.0
+    tuition = credits * cost
+    total_tuition += tuition
+    num_students += 1
+    # display info
+    print(f"{name}\tCredits: {credits}\tTuition: ${tuition:,.2f}")
+    # get next student
+    name = f.readline().rstrip('\n')
+f.close()
+print(f"\nTotal Tuition: ${total_tuition:,.2f}")
+print(f"Number of Students: {num_students}")
