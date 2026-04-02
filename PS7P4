@@ -1,0 +1,24 @@
+#Hubert Radzik
+totp_ex = 0.0  # total extended prices
+c = 0          # order count
+f = open("orders.txt", "r")
+# prime read
+item = f.readline().rstrip('\n')
+while item != "":
+    qty = float(f.readline().rstrip('\n'))
+    price = float(f.readline().rstrip('\n'))
+    ep = qty * price
+    totp_ex += ep
+    c += 1
+    # display line of data
+    print(f"Item: {item}")
+    print(f"Quantity: {qty}")
+    print(f"Price: {price}")
+    print(f"Extended Price: {ep}\n")
+    # get next data
+    item = f.readline().rstrip('\n')
+f.close()
+avg = totp_ex / c if c > 0 else 0
+print(f"Total Extended Prices: {totp_ex}")
+print(f"Number of Orders: {c}")
+print(f"Average Order: {avg}")
